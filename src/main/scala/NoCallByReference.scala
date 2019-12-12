@@ -94,7 +94,6 @@ object NoCallByReference extends App {
   println("Swapping object  ")
   val animal1 = new Animal("Lion")
   val animal2 = new Animal("Tiger")
-
   println("Before mutating:")
   println(s"\nanimal1 name value is ${animal1.name}")
   println(s"animal1 address $animal1")
@@ -107,51 +106,54 @@ object NoCallByReference extends App {
   println(s"\nanimal2 name value is ${animal2.name}")
   println(s"animal2 address $animal1")
   println(s"swapped objects $swappedObjects")
-}
-
-class CustomObjectSwapper(var object1: Object, var object2: Object){
 
 
+  class CustomObjectSwapper(var object1: Object, var object2: Object){
 
-  def returnSwapObjects(): (Object, Object) = {
-    val temp:Object = object1
-    object1 = object2
-    object2 = temp
-    (object1, object2)
+
+
+    def returnSwapObjects(): (Object, Object) = {
+      val temp:Object = object1
+      object1 = object2
+      object2 = temp
+      (object1, object2)
+    }
+
+
+
+    def printObject1AndObject2(): Unit ={
+      println(s"\nobject1 value is $object1")
+      println(s"\nobject2 value is $object2")  }
+  }
+
+
+  class CustomNumberSwapper (var var1: Int, var var2: Int){
+
+
+    def swapNumbers(): (Int, Int) = {
+      val temp = var1
+      var1 = var2
+      var2 = temp
+      (var1, var2)
+    }
+
+
+
+    def printVar1AndVar2(): Unit ={
+      println(s"\nnum1 value is $var1")
+      println(s"\nnum2 value is $var2")  }
   }
 
 
 
-  def printObject1AndObject2(): Unit ={
-    println(s"\nobject1 value is $object1")
-    println(s"\nobject2 value is $object2")  }
-}
+  class Animal (var name :String ){
 
+    def changeName(): Unit ={
+      name = "Dog"
+    }
 
-class CustomNumberSwapper (var var1: Int, var var2: Int){
-
-
-  def swapNumbers(): (Int, Int) = {
-    val temp = var1
-    var1 = var2
-    var2 = temp
-    (var1, var2)
+    override def toString = s"Animal($name)"
   }
 
-
-
-  def printVar1AndVar2(): Unit ={
-    println(s"\nnum1 value is $var1")
-    println(s"\nnum2 value is $var2")  }
 }
 
-
-
-class Animal (var name :String ){
-
-  def changeName(): Unit ={
-    name = "Dog"
-  }
-
-  override def toString = s"Animal($name)"
-}
