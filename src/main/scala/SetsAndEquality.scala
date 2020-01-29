@@ -2,6 +2,8 @@ object SetsAndEquality extends App {
 
   val strings:Set[String] = Set("hello")
 
+  println(s"Is empty set subset of everyset -> ${Set().subsetOf(strings)}")
+
   println(strings.contains("Hello")) //false, case case it not matching
 
   val cisStrings:Set[CIS] = Set(CIS("hello"))

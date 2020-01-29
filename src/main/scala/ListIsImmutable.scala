@@ -1,3 +1,4 @@
+import scala.collection.immutable.Queue
 object ListIsImmutable extends App {
 
   val colors: Seq[String] = List("red", "blue", "green")
@@ -11,5 +12,8 @@ object ListIsImmutable extends App {
   println(colorsWithUpdate)
 
 
-  println(colors)//The original list stayed in tact becuase lists are immutable
+
+  println(colors)//The original list stayed in tact because lists are immutable
+
+val c  = Vector(1,2,3)
 }

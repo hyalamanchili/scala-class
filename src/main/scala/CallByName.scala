@@ -16,6 +16,8 @@ object CallByName extends App {
     println(time1 == time2)
   }
 
+  val t = param1
+
   printTime(time)
 
   print(compute(param1,param2, param3))
