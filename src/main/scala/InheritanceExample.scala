@@ -62,7 +62,7 @@ class Dog extends Animal {
   override def eat = println("I am a dog eating!")
 }
 
-class DogOverrideFieldInConstructor(override val creatureType: String) extends Animal {
+class DogOverrideFieldInConstructor(override  val creatureType: String) extends Animal {
   override def eat = println("I am a dog eating!")
 }
 
@@ -92,9 +92,9 @@ class Cat extends Animal{
 class Person( name: String, age: Int){
   def this(name: String) = this(name, 0)
 
- // def this() = this("",0)
+  def this() = this("",0)
 }
-class Adult(name: String, age: Int, idCard:String) extends Person(name, age)
+class Adult(name: String, age: Int, idCard:String) extends Person(name,age)
 
 //This will not work, as you have to call atleast one super class constrcutor. This will work if you uncomment def this() = this("",0)
 
@@ -111,8 +111,10 @@ trait Carnivore {
 }
 trait ColdBlooded
 
-class Crocodile extends AbstractAnimal with Carnivore with ColdBlooded {
-  val creatureType: String = "croc"
-  def eat: Unit = println("I am a Crocodile eating!")
+class Crocodile extends Animal with Carnivore with ColdBlooded {
+   override val creatureType: String = "croc"
+  override def eat: Unit = println("I am a Crocodile eating!")
   def eat(animal: Animal): Unit = println(s"I am a croc and I am eating ${animal.creatureType}")
 }
+
+//trait CarnivoreWithParam(name: String)//Traits cannot have constructor parameter
