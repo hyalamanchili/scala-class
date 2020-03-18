@@ -8,9 +8,13 @@ object OptionMapAndFlatmap extends App {
 
   println(l.map(x => f(x))) //What happens if you try flatmap
 
+  println(l.map(x => f(x)).flatMap( x=>x))
+
   def g(v:Int) = List(v-1, v, v+1)
 
   println(l.map(x => g(x)))
+
+
 
   println(l.flatMap(x => g(x)))
 
@@ -27,5 +31,7 @@ object OptionMapAndFlatmap extends App {
   val finalCost1 = cost.map(_+fee)
 
   cost.flatMap { x => if (x < 1.00) None else Some(x+fee) }
+
+
 
 }
