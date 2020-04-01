@@ -66,4 +66,5 @@ class ScalaMockitoUnitTest extends FunSuite with BeforeAndAfter with MockitoSuga
     assert(spiedList.size == 100)
   }
 
+
 }
